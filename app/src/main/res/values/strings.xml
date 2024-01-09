@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DailyPlannerApp</string>
+    <string name="home_screen">Home Screen</string>
+    <string name="splash_screen">Splash Screen</string>
 </resources>
