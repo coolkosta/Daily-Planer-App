@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Room
 import com.coolkosta.dailyplannerapp.data.local.ScheduleDao
 import com.coolkosta.dailyplannerapp.data.local.ScheduleDatabase
+import com.coolkosta.dailyplannerapp.data.local.ScheduleLocalRepositoryImpl
+import com.coolkosta.dailyplannerapp.repository.ScheduleRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,9 +15,8 @@ import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-object AppModule {
+object DatabaseModule {
 
-    @Singleton
     @Provides
     fun provideSchedule(schedule: ScheduleDatabase): ScheduleDao =
         schedule.ScheduleDao()
@@ -30,4 +31,9 @@ object AppModule {
         )
             .fallbackToDestructiveMigration()
             .build()
+
+    @Provides
+    fun provideScheduleRepository(scheduleDao: ScheduleDao): ScheduleRepository {
+        return ScheduleLocalRepositoryImpl(scheduleDao)
+    }
 }

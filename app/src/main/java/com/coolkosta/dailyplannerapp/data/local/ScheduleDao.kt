@@ -3,7 +3,9 @@ package com.coolkosta.dailyplannerapp.data.local
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.coolkosta.dailyplannerapp.model.Schedule
 import kotlinx.coroutines.flow.Flow
 
@@ -18,6 +20,9 @@ interface ScheduleDao {
 
     @Insert
     suspend fun insertSchedule(schedule: Schedule)
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun updateSchedule(schedule: Schedule)
 
     @Delete
     suspend fun deleteSchedule(schedule: Schedule)
