@@ -210,7 +210,7 @@ fun ScheduleItem(
                             isDone = !(schedule.isDone),
                             date = schedule.date,
                             time = schedule.time,
-                            tittle = schedule.tittle,
+                            title = schedule.title,
                             description = schedule.description
                         )
                     )
@@ -235,7 +235,7 @@ fun ScheduleItem(
             ) {
                 Text(
                     fontWeight = FontWeight.Bold,
-                    text = schedule.tittle,
+                    text = schedule.title,
 
                     )
                 Text(
@@ -318,7 +318,7 @@ fun CalendarDialog(
     viewModel: HomeScreenViewModel,
     modifier: Modifier = Modifier,
 ) {
-    var scheduleTitle by remember { mutableStateOf(schedule?.tittle ?: "") }
+    var scheduleTitle by remember { mutableStateOf(schedule?.title ?: "") }
     var scheduleDescription by remember { mutableStateOf(schedule?.description ?: "") }
     val closeDialog = remember { mutableStateOf(false) }
     if (closeDialog.value) {
@@ -408,7 +408,7 @@ fun CalendarDialog(
                                     date,
                                     isDone = false,
                                     time = formatTime(timePickerState.hour, timePickerState.minute),
-                                    tittle = scheduleTitle,
+                                    title = scheduleTitle,
                                     description = scheduleDescription
                                 )
                             )
@@ -429,7 +429,7 @@ fun CalendarDialog(
                                     isDone = schedule.isDone,
                                     date = date,
                                     time = formatTime(timePickerState.hour, timePickerState.minute),
-                                    tittle = scheduleTitle,
+                                    title = scheduleTitle,
                                     description = scheduleDescription
                                 )
                             )

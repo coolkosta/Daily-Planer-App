@@ -9,7 +9,7 @@ data class Schedule(
     val id: Int = 0,
     val date: String,
     val time: String,
-    val tittle: String = "",
+    val title: String = "",
     val description: String = "",
     val isDone: Boolean,
 )

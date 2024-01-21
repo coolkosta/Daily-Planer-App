@@ -89,6 +89,9 @@ dependencies {
 
     implementation(libs.datetime)
     coreLibraryDesugaring(libs.desugar.jdk.libs)
+
+    testImplementation (libs.mockito.core)
+    testImplementation (libs.kotlinx.coroutines.test)
 }
 
 kapt {
